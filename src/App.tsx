@@ -52,8 +52,29 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-black font-sans text-white antialiased selection:bg-sky-500/30 selection:text-sky-200">
+      {/* Large TAXI Logo Section */}
+      <section className="pt-16 pb-4 lg:pt-24 lg:pb-8 bg-black flex justify-center items-center overflow-hidden relative">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(250,204,21,0.05)_0%,transparent_70%)]" />
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9, y: 20 }}
+          whileInView={{ opacity: 1, scale: 1, y: 0 }}
+          transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
+          viewport={{ once: true }}
+          className="relative z-10"
+        >
+          <h2 className="text-[8rem] sm:text-[12rem] md:text-[18rem] lg:text-[24rem] xl:text-[28rem] font-black tracking-tighter leading-none select-none pointer-events-none flex flex-col items-center">
+            <span className="text-yellow-400 drop-shadow-[0_0_40px_rgba(250,204,21,0.3)] md:drop-shadow-[0_0_80px_rgba(250,204,21,0.4)] animate-pulse-glow">
+              TAXI
+            </span>
+            <span className="text-[10px] sm:text-xs md:text-sm lg:text-base font-bold tracking-[0.5em] md:tracking-[1em] text-stone-600 uppercase -mt-2 md:-mt-8 lg:-mt-12 ml-[0.5em] md:ml-[1em]">
+              Premium Service
+            </span>
+          </h2>
+        </motion.div>
+      </section>
+
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center pt-20 lg:pt-32 overflow-hidden">
+      <section className="relative pt-12 pb-8 lg:pt-20 lg:pb-12 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-gradient-to-br from-sky-900/20 via-black to-black" />
           <div className="absolute top-0 right-0 w-1/2 h-full bg-yellow-600/5 blur-[120px] rounded-full translate-x-1/4" />
@@ -72,25 +93,25 @@ export default function App() {
               <span className="bg-yellow-400/20 text-yellow-400 border border-yellow-400/40 px-6 py-2.5 rounded-full text-base lg:text-lg font-black tracking-tight shadow-[0_0_20px_rgba(250,204,21,0.2)]">착한 요금</span>
               <span className="bg-sky-500/20 text-sky-400 border border-sky-500/40 px-6 py-2.5 rounded-full text-base lg:text-lg font-black tracking-tight shadow-[0_0_20px_rgba(14,165,233,0.2)]">최신형 차량</span>
             </div>
-            <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[10rem] font-black leading-[1.05] mb-12 lg:mb-16 tracking-tighter">
+            <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[10rem] font-black leading-[1.05] mb-8 lg:mb-16 tracking-tighter">
               <span className="animate-multi-color-flash">장거리 전문</span><br />
               콜택시
             </h1>
-            <p className="text-xl md:text-2xl lg:text-3xl text-sky-100/70 mb-16 lg:mb-20 font-medium leading-relaxed max-w-3xl tracking-tight mx-auto">
+            <p className="text-lg md:text-2xl lg:text-3xl text-sky-100/70 mb-12 lg:mb-20 font-medium leading-relaxed max-w-3xl tracking-tight mx-auto px-4">
               젊은 기사님의 쾌적한 운행과 최신형 차량, 가성비 장거리 택시.<br className="hidden sm:block" />
               가장 <span className="text-red-500 font-black text-glow-red">안전</span>하고 편안한 이동 경험을 선사합니다.
             </p>
-            <div className="flex flex-col items-center gap-8 lg:gap-10">
+            <div className="flex flex-col items-center gap-6 lg:gap-10">
               <button 
                 onClick={handleCall}
-                className="bg-yellow-400 hover:bg-yellow-300 text-black px-14 py-7 rounded-2xl text-2xl lg:text-3xl font-black flex items-center justify-center gap-4 transition-all shadow-2xl shadow-yellow-400/30 active:scale-95 group"
+                className="bg-yellow-400 hover:bg-yellow-300 text-black px-10 py-5 lg:px-14 lg:py-7 rounded-2xl text-xl lg:text-3xl font-black flex items-center justify-center gap-4 transition-all shadow-2xl shadow-yellow-400/30 active:scale-95 group"
               >
-                <Phone className="w-8 h-8 lg:w-9 lg:h-9 group-hover:rotate-12 transition-transform" />
+                <Phone className="w-6 h-6 lg:w-9 lg:h-9 group-hover:rotate-12 transition-transform" />
                 예약 문의
               </button>
               <div className="flex flex-col items-center">
-                <span className="text-stone-500 text-sm lg:text-base font-bold uppercase tracking-widest mb-2">Direct Call</span>
-                <a href={`tel:${PHONE_NUMBER}`} className="text-4xl md:text-5xl lg:text-6xl font-black text-white hover:text-yellow-400 transition-colors tracking-tighter">
+                <span className="text-stone-500 text-xs lg:text-base font-bold uppercase tracking-widest mb-2">Direct Call</span>
+                <a href={`tel:${PHONE_NUMBER}`} className="text-3xl md:text-5xl lg:text-6xl font-black text-white hover:text-yellow-400 transition-colors tracking-tighter">
                   {PHONE_NUMBER}
                 </a>
               </div>
@@ -100,7 +121,7 @@ export default function App() {
       </section>
 
       {/* Safety Section */}
-      <section className="py-24 lg:py-32 bg-black border-y border-white/5">
+      <section className="pt-8 pb-16 lg:pt-12 lg:pb-24 bg-black">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10">
             {SAFETY_FEATURES.map((feature, idx) => (
@@ -130,12 +151,35 @@ export default function App() {
         <div className="absolute top-0 right-0 w-1/2 h-full bg-sky-600/10 blur-[120px] rounded-full translate-x-1/3" />
         <div className="absolute bottom-0 left-0 w-1/3 h-full bg-yellow-600/5 blur-[100px] rounded-full -translate-x-1/3" />
         
-        <div className="max-w-5xl mx-auto px-6 text-center relative z-10">
-          <h2 className="text-6xl md:text-8xl lg:text-9xl font-black mb-12 lg:mb-16 tracking-tighter leading-[1.05] animate-pulse-glow">
-            <span className="text-red-500 text-glow-red">안전운행</span><br />
-            <span className="animate-multi-color-flash">장거리 전문</span><br />
-            <span className="text-yellow-400">대구 장거리 콜택시</span>
-          </h2>
+        <div className="max-w-7xl mx-auto px-6 text-center relative z-10">
+          <div className="flex flex-col items-center mb-16 lg:mb-24">
+            <motion.span 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-4xl md:text-7xl lg:text-8xl font-black text-red-500 text-glow-red tracking-tighter mb-4 lg:mb-10"
+            >
+              안전운행
+            </motion.span>
+            <motion.span 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 }}
+              viewport={{ once: true }}
+              className="text-5xl md:text-8xl lg:text-9xl font-black animate-multi-color-flash tracking-tighter mb-6 lg:mb-14"
+            >
+              장거리 전문
+            </motion.span>
+            <motion.h2 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              viewport={{ once: true }}
+              className="text-5xl md:text-8xl lg:text-9xl xl:text-[11rem] font-black text-white tracking-tighter leading-none drop-shadow-[0_0_50px_rgba(255,255,255,0.1)]"
+            >
+              콜택시
+            </motion.h2>
+          </div>
           <p className="text-sky-100/70 text-xl md:text-2xl lg:text-3xl mb-16 lg:mb-20 font-medium tracking-tight">
             합리적인 요금과 빠른 배차, 지금 바로 경험하세요.
           </p>
@@ -158,7 +202,7 @@ export default function App() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-black text-stone-500 py-24 border-t border-white/5 relative overflow-hidden">
+      <footer className="bg-black text-stone-500 py-24 relative overflow-hidden">
         {/* Background Logo - Samsung Lions */}
         <div className="absolute right-0 bottom-0 opacity-[0.04] pointer-events-none translate-x-1/4 translate-y-1/4 z-0 rotate-[-15deg]">
           <img 
