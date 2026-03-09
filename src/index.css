@@ -1,0 +1,79 @@
+@import "tailwindcss";
+
+@theme {
+  --color-neon-green: #39FF14;
+}
+
+.text-glow-green {
+  text-shadow: 0 0 20px rgba(57, 255, 20, 0.5), 0 0 40px rgba(57, 255, 20, 0.3);
+}
+
+.text-glow-red {
+  text-shadow: 0 0 20px rgba(239, 68, 68, 0.5), 0 0 40px rgba(239, 68, 68, 0.3);
+}
+
+.text-glow-blue {
+  text-shadow: 0 0 20px rgba(59, 130, 246, 0.5), 0 0 40px rgba(59, 130, 246, 0.3);
+}
+
+@keyframes flash-shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-flash-shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0) 40%,
+    rgba(255, 255, 255, 0.8) 50%,
+    rgba(255, 255, 255, 0) 60%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  display: inline-block;
+  animation: flash-shimmer 3s infinite linear;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { filter: brightness(1); }
+  50% { filter: brightness(1.3); }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s infinite ease-in-out;
+}
+
+@keyframes multi-color-shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes blink-sparkle {
+  0%, 100% { opacity: 1; filter: brightness(1) drop-shadow(0 0 10px rgba(255,255,255,0.3)); }
+  50% { opacity: 0.85; filter: brightness(1.4) drop-shadow(0 0 25px rgba(255,255,255,0.6)); }
+}
+
+.animate-multi-color-flash {
+  background: linear-gradient(
+    90deg,
+    #ffffff 0%,
+    #39FF14 20%,
+    #00d4ff 40%,
+    #ff007a 60%,
+    #facc15 80%,
+    #ffffff 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: multi-color-shimmer 3s linear infinite, blink-sparkle 1s ease-in-out infinite;
+  display: inline-block;
+}
